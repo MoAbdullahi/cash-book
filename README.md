@@ -9,17 +9,15 @@ month carries the one before it.
 
 ## Setting it up on Cloudflare
 
-**1. Create the storage.** In the Cloudflare dashboard, go to
-*Storage & Databases → KV → Create a namespace* and name it `cashbook`.
-Copy the namespace ID it shows you.
+The `cashbook` KV namespace already exists and `wrangler.toml` points at it,
+so there is one step left:
 
-**2. Point the config at it.** Open `wrangler.toml` in this repo and replace
-`PASTE_YOUR_KV_NAMESPACE_ID_HERE` with that ID. Leave `binding = "BOOK"`
-exactly as it is — the code looks for that name.
+**Connect the repo.** In the Cloudflare dashboard, go to *Workers & Pages →
+Create → Import a repository*, choose this repo, and deploy. Every push to
+`main` redeploys the worker from then on.
 
-**3. Connect the repo.** In the dashboard, go to *Workers & Pages → Create →
-Import a repository*, choose this repo, and deploy. Every push to `main`
-redeploys the worker from then on.
+If the namespace is ever recreated, put its new ID in `wrangler.toml` and
+push. Its ID is the last part of the namespace's dashboard URL.
 
 You will get a link ending in `.workers.dev`. That one link is what both the
 editors and the viewers use.

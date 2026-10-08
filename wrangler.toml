@@ -2,15 +2,10 @@ name = "cash-book"
 main = "src/index.js"
 compatibility_date = "2026-05-01"
 
-# The book is stored in a KV namespace.
-#
-# Before the first deploy, create the namespace in the Cloudflare dashboard:
-#   Storage & Databases  ->  KV  ->  Create a namespace  ->  name it "cashbook"
-#
-# Copy the namespace ID it gives you and paste it below, replacing
-# PASTE_YOUR_KV_NAMESPACE_ID_HERE. Keep the binding name as BOOK — the
-# code looks for that exact name.
+# The book is stored in the "cashbook" KV namespace. The binding name BOOK
+# is what the code looks for, so leave it alone. The id below points at the
+# namespace itself — if it is ever replaced, the new id goes here.
 
 [[kv_namespaces]]
 binding = "BOOK"
-id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+id = "d574270d43374ed288ce899dcc452558"
